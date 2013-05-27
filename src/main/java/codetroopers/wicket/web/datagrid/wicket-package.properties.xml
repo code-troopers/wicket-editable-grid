@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="general.edit">Édition</entry>
+    <entry key="general.save">Sauvegarder</entry>
+    <entry key="general.cancel">Annuler</entry>
+    <entry key="general.delete">Supprimer</entry>
+    <entry key="general.add">Ajouter</entry>
+</properties>

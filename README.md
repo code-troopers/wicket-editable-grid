@@ -1,2 +1,0 @@
-wicket-editable-grid
-====================
