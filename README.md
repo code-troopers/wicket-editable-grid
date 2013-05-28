@@ -3,6 +3,8 @@
 Thanks to Cloudbees buildhive for providing a free Jenkins instance. [![Build
 Status](https://buildhive.cloudbees.com/job/code-troopers/job/wicket-editable-grid/badge/icon)](https://buildhive.cloudbees.com/job/code-troopers/job/wicket-editable-grid/)
 
+This project is a fork of the [Wicketstuff Editable Grid](https://github.com/wicketstuff/core/wiki/Editable-Grid) project of [Mohammad Nadeem](https://github.com/mnadeem) 
+
 [Apache Wicket](http://wicket.apache.org) is a Java Web framework providing clean separation between markup and logic.
 
 # Setup on your project
