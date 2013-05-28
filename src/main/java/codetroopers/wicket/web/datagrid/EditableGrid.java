@@ -11,6 +11,7 @@ import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.IColumn;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.markup.html.form.IFormSubmitter;
+import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.markup.html.panel.Panel;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.model.Model;
@@ -27,6 +28,7 @@ public class EditableGrid<T, S> extends Panel {
 
     private static final long serialVersionUID = 1L;
     private EditableDataTable<T, S> dataTable;
+    private FeedbackPanel feedback;
 
     public EditableGrid(final String id, final List<? extends IColumn<T, S>> columns,
                         final IEditableDataProvider<T, S> dataProvider, final long rowsPerPage, Class<T> clazz) {
@@ -44,7 +46,14 @@ public class EditableGrid<T, S> extends Panel {
         Form<T> form = new NonValidatingForm<>("form");
         form.setOutputMarkupId(true);
         form.add(newDataTable(columns, dataProvider, rowsPerPage, clazz));
+        feedback = newFeedbackPanel("feedback");
+        feedback.setOutputMarkupId(true);
+        form.add(feedback);
         return form;
+    }
+
+    protected FeedbackPanel newFeedbackPanel(final String markupId) {
+        return new FeedbackPanel(markupId);
     }
 
     private static class NonValidatingForm<T> extends Form<T> {
@@ -94,12 +103,14 @@ public class EditableGrid<T, S> extends Panel {
             protected void onAdd(AjaxRequestTarget target, T newRow) {
                 dataProvider.add(newRow);
                 target.add(dataTable);
+                target.add(feedback);
                 EditableGrid.this.onAdd(target, newRow);
             }
 
             @Override
             protected void onError(AjaxRequestTarget target) {
                 super.onError(target);
+                target.add(feedback);
                 EditableGrid.this.onError(target);
             }
 
@@ -113,21 +124,25 @@ public class EditableGrid<T, S> extends Panel {
 
             @Override
             protected void onError(AjaxRequestTarget target, IModel<T> rowModel) {
+                target.add(feedback);
                 EditableGrid.this.onError(target);
             }
 
             @Override
             protected void onSave(AjaxRequestTarget target, IModel<T> rowModel) {
+                target.add(feedback);
                 EditableGrid.this.onSave(target, rowModel);
             }
 
             @Override
             protected void onDelete(AjaxRequestTarget target, IModel<T> rowModel) {
+                target.add(feedback);
                 EditableGrid.this.onDelete(target, rowModel);
             }
 
             @Override
             protected void onCancel(AjaxRequestTarget target) {
+                target.add(feedback);
                 EditableGrid.this.onCancel(target);
             }
         };
@@ -139,19 +154,15 @@ public class EditableGrid<T, S> extends Panel {
 
 
     protected void onDelete(AjaxRequestTarget target, IModel<T> rowModel) {
-
     }
 
     protected void onSave(AjaxRequestTarget target, IModel<T> rowModel) {
-
     }
 
     protected void onError(AjaxRequestTarget target) {
-
     }
 
     protected void onAdd(AjaxRequestTarget target, T newRow) {
-
     }
 
     protected boolean displayAddFeature() {
