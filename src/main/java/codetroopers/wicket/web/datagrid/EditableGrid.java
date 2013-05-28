@@ -107,7 +107,7 @@ public class EditableGrid<T, S> extends Panel {
     }
 
     protected EditableGridActionsColumn<T, S> newActionsColumn() {
-        return new EditableGridActionsColumn<T, S>(new Model<>("Actions")) {
+        return new EditableGridActionsColumn<T, S>(Model.of("")) {
 
             private static final long serialVersionUID = 1L;
 

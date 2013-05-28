@@ -4,9 +4,7 @@ import codetroopers.wicket.web.datagrid.column.AbstractEditablePropertyColumn;
 import codetroopers.wicket.web.datagrid.column.EditableCellPanel;
 import codetroopers.wicket.web.datagrid.component.EditableDataTable;
 import codetroopers.wicket.web.datagrid.component.EditableGridSubmitLink;
-import org.apache.wicket.AttributeModifier;
 import org.apache.wicket.Component;
-import org.apache.wicket.MarkupContainer;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.behavior.AttributeAppender;
 import org.apache.wicket.extensions.markup.html.repeater.data.table.IColumn;
@@ -40,12 +38,11 @@ public abstract class EditableGridBottomToolbar<T, S> extends AbstractEditableGr
     public EditableGridBottomToolbar(EditableDataTable<?, ?> table, Class<T> clazz) {
         super(table);
         createNewInstance(clazz);
-        MarkupContainer td = new WebMarkupContainer("td");
-        td.add(new AttributeModifier("colspan", table.getColumns().size() - 1));
         AddToolBarForm addToolBarForm = new AddToolBarForm("addToolbarForm");
-        td.add(addToolBarForm);
-        add(td);
-        add(newAddButton(addToolBarForm));
+        add(addToolBarForm);
+
+        addToolBarForm.add(newEditorComponents());
+        addToolBarForm.add(newAddButton(addToolBarForm));
     }
 
     protected void onError(AjaxRequestTarget target) {
@@ -67,7 +64,6 @@ public abstract class EditableGridBottomToolbar<T, S> extends AbstractEditableGr
 
         public AddToolBarForm(String id) {
             super(id);
-            add(newEditorComponents());
         }
 
         public boolean processChildren() {
