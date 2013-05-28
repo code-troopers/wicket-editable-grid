@@ -17,6 +17,12 @@ Add the following Maven dependency
 
 TODO How to use it
 
+# Example
+
+With the twitter bootstrap stylesheet, it renders like this
+
+![wicket-editable-grid example](/example.png)
+
 # Bug tracker
 
 Have a bug? Please create an issue here on GitHub!
