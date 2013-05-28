@@ -22,9 +22,9 @@
     </licenses>
 
     <scm>
-        <url>https://github.com/code-troopers/wicket-editable-datagrid</url>
-        <connection>scm:git:git@github.com:code-troopers/wicket-editable-datagrid.git</connection>
-        <developerConnection>scm:git:git@github.com:code-troopers/wicket-editable-datagrid.git</developerConnection>
+        <url>https://github.com/code-troopers/wicket-editable-grid</url>
+        <connection>scm:git:git@github.com:code-troopers/wicket-editable-grid.git</connection>
+        <developerConnection>scm:git:git@github.com:code-troopers/wicket-editable-grid.git</developerConnection>
     </scm>
 
     <developers>
