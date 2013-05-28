@@ -1,7 +1,7 @@
 # Wicket Editable grid
 
 Thanks to Cloudbees buildhive for providing a free Jenkins instance. [![Build
-Status](https://buildhive.cloudbees.com/job/code-troopers/job/wicket-editable-grid/badge/icon)](https://buildhive.cloudbees.com/job/code-troopers/job/wicket-daterangepicker/)
+Status](https://buildhive.cloudbees.com/job/code-troopers/job/wicket-editable-grid/badge/icon)](https://buildhive.cloudbees.com/job/code-troopers/job/wicket-editable-grid/)
 
 [Apache Wicket](http://wicket.apache.org) is a Java Web framework providing clean separation between markup and logic.
 
